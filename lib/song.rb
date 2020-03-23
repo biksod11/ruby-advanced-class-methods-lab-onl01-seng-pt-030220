@@ -2,7 +2,7 @@ class Song
   attr_accessor :name, :artist_name
   @@all = []
 
-  def self.all
+  def Song.all
     @@all
   end
 
@@ -16,7 +16,7 @@ class Song
     song
   end
 
-  def Song.new_by_name(song_name)
+  def self.new_by_name(song_name)
     song = self.new
     song.name = song_name
     song
@@ -29,7 +29,7 @@ class Song
   end
 
   def self.find_by_name(song_name)
-    Song.all.detect{|s|s.name == song_name}
+    self.all.detect{|s|s.name == song_name}
   end
 
   def self.find_or_create_by_name(song_name)
